@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Protected Page</title>
+  <style>
+    #protectedContent { display: none; }
+  </style>
+</head>
+<body>
+  <h2>Password Protected</h2>
+  <input type="password" id="passwordInput" placeholder="Enter Password">
+  <button onclick="checkPassword()">Enter</button>
+
+  <div id="protectedContent">
+    <h3>Welcome!</h3>
+    <img src="secret-photo.jpg" width="300"><br>
+    <a href="https://example.com/hidden-link">Hidden Link</a>
+  </div>
+
+  <script>
+    function checkPassword() {
+      var password = document.getElementById("passwordInput").value;
+      if (password === "1234") {
+        document.getElementById("protectedContent").style.display = "block";
+      } else {
+        alert("Wrong Password!");
+      }
+    }
+  </script>
+</body>
+</html>
