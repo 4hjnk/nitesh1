@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secret Surprise Gallery</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px 10px;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    .name-button {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #333;
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .name-button:hover {
+      background-color: #d1c4e9;
+      color: #000;
+    }
+
+    .photo {
+      display: none;
+      margin-top: 30px;
+      max-width: 90%;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Click on Your Name to Reveal Your Surprise!</h1>
+
+  <div id="buttonsContainer"></div>
+  <img id="photoDisplay" class="photo" src="" alt="Secret Photo">
+
+  <script>
+    const people = [
+      { name: "Nitesh", password: "n123", photo: "https://via.placeholder.com/600x400?text=Nitesh+Photo" },
+      { name: "Riya", password: "riya123", photo: "https://via.placeholder.com/600x400?text=Riya+Photo" },
+      { name: "Rahul", password: "rahul456", photo: "https://via.placeholder.com/600x400?text=Rahul+Photo" },
+      { name: "Priya", password: "priya789", photo: "https://via.placeholder.com/600x400?text=Priya+Photo" },
+      { name: "Aman", password: "aman007", photo: "https://via.placeholder.com/600x400?text=Aman+Photo" },
+      { name: "Simran", password: "simran@1", photo: "https://via.placeholder.com/600x400?text=Simran+Photo" },
+      { name: "Arjun", password: "arjun@2", photo: "https://via.placeholder.com/600x400?text=Arjun+Photo" },
+      { name: "Sneha", password: "sneha11", photo: "https://via.placeholder.com/600x400?text=Sneha+Photo" },
+      { name: "Rohan", password: "rohan99", photo: "https://via.placeholder.com/600x400?text=Rohan+Photo" },
+      { name: "Anjali", password: "anjali22", photo: "https://via.placeholder.com/600x400?text=Anjali+Photo" },
+      { name: "Kunal", password: "kunal88", photo: "https://via.placeholder.com/600x400?text=Kunal+Photo" },
+      { name: "Meera", password: "meera66", photo: "https://via.placeholder.com/600x400?text=Meera+Photo" },
+      { name: "Dev", password: "dev12", photo: "https://via.placeholder.com/600x400?text=Dev+Photo" },
+      { name: "Neha", password: "neha44", photo: "https://via.placeholder.com/600x400?text=Neha+Photo" },
+      { name: "Yash", password: "yash00", photo: "https://via.placeholder.com/600x400?text=Yash+Photo" },
+    ];
+
+    const container = document.getElementById("buttonsContainer");
+    const photo = document.getElementById("photoDisplay");
+
+    people.forEach(person => {
+      const btn = document.createElement("button");
+      btn.textContent = person.name;
+      btn.className = "name-button";
+      btn.onclick = function() {
+        const input = prompt(`Enter password for ${person.name}:`);
+        if (input === person.password) {
+          photo.src = person.photo;
+          photo.style.display = "block";
+        } else {
+          alert("Wrong password!");
+          photo.style.display = "none";
+        }
+      };
+      container.appendChild(btn);
+    });
+  </script>
+
+</body>
+</html>
